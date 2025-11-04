@@ -1,4 +1,3 @@
-
 var selector = document.querySelector(".selector_box");
 selector.addEventListener('click', () => {
     if (selector.classList.contains("selector_open")){
@@ -25,9 +24,50 @@ document.querySelectorAll(".selector_option").forEach((option) => {
 
 var upload = document.querySelector(".upload");
 
+// === REPLACED IMAGE UPLOAD SECTION (ImgBB) ===
 var imageInput = document.createElement("input");
 imageInput.type = "file";
 imageInput.accept = ".jpeg,.png,.gif";
+
+upload.addEventListener('click', () => {
+    imageInput.value = ""; // reset so user can reselect
+    upload.classList.remove("error_shown");
+    imageInput.click();
+});
+
+imageInput.addEventListener('change', async () => {
+    if (!imageInput.files.length) return;
+
+    upload.classList.remove("upload_loaded");
+    upload.classList.add("upload_loading");
+    upload.removeAttribute("selected");
+
+    const file = imageInput.files[0];
+    const data = new FormData();
+    data.append("image", file);
+
+    try {
+        const res = await fetch("https://api.imgbb.com/1/upload?key=8ca5d96c7a478e5a16bb17c74a37f819", {
+            method: "POST",
+            body: data
+        });
+        const response = await res.json();
+
+        if (!response.success) throw new Error("Upload failed");
+
+        const url = response.data.url;
+
+        upload.classList.remove("upload_loading");
+        upload.classList.add("upload_loaded");
+        upload.querySelector(".upload_uploaded").src = url;
+        upload.setAttribute("selected", url);
+    } catch (err) {
+        console.error(err);
+        upload.classList.remove("upload_loading");
+        upload.classList.add("error_shown");
+    }
+});
+// === END IMAGE UPLOAD REPLACEMENT ===
 
 document.querySelectorAll(".input_holder").forEach((element) => {
 
@@ -37,43 +77,6 @@ document.querySelectorAll(".input_holder").forEach((element) => {
     })
 
 });
-
-upload.addEventListener('click', () => {
-    imageInput.click();
-    upload.classList.remove("error_shown")
-});
-
-imageInput.addEventListener('change', (event) => {
-
-    upload.classList.remove("upload_loaded");
-    upload.classList.add("upload_loading");
-
-    upload.removeAttribute("selected")
-
-    var file = imageInput.files[0];
-    var data = new FormData();
-    data.append("image", file);
-
-    fetch('	https://api.imgur.com/3/image' ,{
-        method: 'POST',
-        headers: {
-            'Authorization': 'Client-ID ec67bcef2e19c08'
-        },
-        body: data
-    })
-    .then(result => result.json())
-    .then(response => {
-        
-        var url = response.data.link;
-        upload.classList.remove("error_shown")
-        upload.setAttribute("selected", url);
-        upload.classList.add("upload_loaded");
-        upload.classList.remove("upload_loading");
-        upload.querySelector(".upload_uploaded").src = url;
-
-    })
-
-})
 
 document.querySelector(".go").addEventListener('click', () => {
 
@@ -93,7 +96,7 @@ document.querySelector(".go").addEventListener('click', () => {
     var dateEmpty = false;
     document.querySelectorAll(".date_input").forEach((element) => {
         birthday = birthday + "." + element.value
-        if (isEmpty(element.value)){
+        if (/^\s*$/.test(element.value)){
             dateEmpty = true;
         }
     })
@@ -112,7 +115,7 @@ document.querySelector(".go").addEventListener('click', () => {
 
         var input = element.querySelector(".input");
 
-        if (isEmpty(input.value)){
+        if (/^\s*$/.test(input.value)){
             empty.push(element);
             element.classList.add("error_shown");
         }else{
@@ -130,26 +133,16 @@ document.querySelector(".go").addEventListener('click', () => {
 
 });
 
-function isEmpty(value){
-
-    let pattern = /^\s*$/
-    return pattern.test(value);
-
-}
-
 function forwardToId(params){
 
-    location.href = "/FistaszjoObywatel/id?" + params
+location.href = "/FistaszjoObywatel/id?" + params
+
 
 }
 
 var guide = document.querySelector(".guide_holder");
 guide.addEventListener('click', () => {
 
-    if (guide.classList.contains("unfolded")){
-        guide.classList.remove("unfolded");
-    }else{
-        guide.classList.add("unfolded");
-    }
+    guide.classList.toggle("unfolded");
 
 })
