@@ -47,7 +47,7 @@ imageInput.addEventListener('change', async () => {
     data.append("image", file);
 
     try {
-        const res = await fetch("https://api.imgbb.com/1/upload?key=8ca5d96c7a478e5a16bb17c74a37f819", {
+        const res = await fetch("https://api.imgbb.com/1/upload?key=3ce694dd7f69674eb247303ce0de3402", {
             method: "POST",
             body: data
         });
@@ -146,4 +146,5 @@ guide.addEventListener('click', () => {
     guide.classList.toggle("unfolded");
 
 })
+
 
