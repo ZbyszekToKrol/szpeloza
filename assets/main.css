@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root{
-    --home: url('https://github.com/ZbyszekToKrol/szpeloza/images/ab001_home.svg');
-    --home-open: url('https://github.com/ZbyszekToKrol/szpeloza/images/b001_home.svg');
-    --documents: url('https://github.com/ZbyszekToKrol/szpeloza/images/ad005_framed_person.svg');
-    --documents-open: url('https://github.com/ZbyszekToKrol/szpeloza/images/b002_framed_person.svg');
-    --services: url('https://github.com/ZbyszekToKrol/szpeloza/images/ac001_services.svg');
-    --services-open: url('https://github.com/ZbyszekToKrol/szpeloza/images/b004_services.svg');
-    --qr: url('https://github.com/ZbyszekToKrol/szpeloza/images/ai001_scanner_qr.svg');
-    --qr-open: url('https://github.com/ZbyszekToKrol/szpeloza/images/b003_scanner_qr.svg');
-    --more: url('https://github.com/ZbyszekToKrol/szpeloza/images/ab010_more.svg');
-    --more-open: url('https://github.com/ZbyszekToKrol/szpeloza/images/b005_more.svg');
+    --home: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/ab001_home.svg');
+    --home-open: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/b001_home.svg');
+    --documents: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/ad005_framed_person.svg');
+    --documents-open: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/b002_framed_person.svg');
+    --services: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/ac001_services.svg');
+    --services-open: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/b004_services.svg');
+    --qr: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/ai001_scanner_qr.svg');
+    --qr-open: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/b003_scanner_qr.svg');
+    --more: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/ab010_more.svg');
+    --more-open: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/f13b58495cd493cc47dce1cc299d3b98a302510a/images/b005_more.svg');
     --text: #024b97;
     --shadow: 0px 0px 10px rgb(224, 224, 224);
 }
@@ -221,4 +221,5 @@ p, input{
     margin-right: 0px;
     margin-left: auto;
 }
+
 
