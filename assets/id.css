@@ -45,7 +45,7 @@
 }
 
 .eye{
-    background-image: url('images/cardbg1.svg');
+    background-image: url('https://raw.githubusercontent.com/ZbyszekToKrol/szpeloza/96ea2f8ad8f1aa87fc133b3c98910a82ebe31e0a/images/cardbg1.svg');
     position: absolute;
     top: 0;
     bottom: 0;
@@ -207,3 +207,4 @@
     width: max-content;
     margin-left: auto;
 }
+
