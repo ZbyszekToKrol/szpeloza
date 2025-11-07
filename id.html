@@ -41,15 +41,17 @@
             <p class="version">wersja 4.52.0 (13)</p>
         </div>
     </div>
-    <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js")
-  .then(() => console.log("Service Worker registered"));
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js')
+    .then(() => console.log("Service Worker registered"))
+    .catch(e => console.log("SW registration failed:", e));
 }
 </script>
     <script src="assets/id.js?v=1.1"></script>
     <script src="assets/manifest.js"></script>
 </body>
+
 
 
 
